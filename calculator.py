@@ -8,6 +8,22 @@ def divide (a, b):
     if b == 0: 
         return "Cannot Divide By Zero! -_-"
     return a / b 
+
+operations = {
+    "1": add,
+    "2": subtract,
+    "3": multiply,
+    "4": divide
+}
+def calculate(choice, num1, num2):
+    operations = {
+        "1": num1 + num2,
+        "2": num1 - num2,
+        "3": num1 * num2,
+        "4": num1 / num2 if num2 != 0 else "Cannot Divide By Zero! -_-"
+    }
+    return operations.get(choice, "Invalid Choice. Try again! -_-")
+
 def main ():
     while True:
         print("--- Simple Calculator ---")
@@ -30,7 +46,7 @@ def main ():
             continue
 
         if choice == "1":
-            print("Result:", add(num1+num2))
+            print("Result:", add(num1, num2))
         elif choice == "2":
             print("Result:", subtract(num1, num2))
         elif choice == "3":
