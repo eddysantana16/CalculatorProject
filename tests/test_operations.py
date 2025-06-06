@@ -54,3 +54,84 @@ def test_divide_by_zero():
 
 def test_calculate(choice, a, b, expected):
      assert calculate(choice, a, b) == expected
+
+##Test
+
+from unittest.mock import patch
+import builtins
+import calculator
+
+def test_main_quit():
+    with patch.object(builtins, 'input', side_effect=["5", "10", "3","4"]):
+        calculator.main()
+
+##Test
+
+from unittest.mock import patch
+import builtins
+import calculator
+
+def test_main_quit_immediately():
+    with patch.object(builtins, 'input', side_effect=["5"]):
+        calculator.main()
+
+def test_main_add_then_quit():
+    with patch("builtins.input", side_effect=["1", "10", "5", "5"]):
+        calculator.main()
+
+def test_main_invalid_input_then_quit():
+    with patch("builtins.input", side_effect=["1", "ten", "5", "5"]):
+        calculator.main()
+
+def test_main_invalid_choice_then_quit():
+    with patch("builtins.input", side_effect=["9", "10", "5", "5"]):
+        calculator.main()
+
+
+##Test
+
+from unittest.mock import patch
+import builtins
+import calculator
+
+def test_main_quit():
+    with patch.object(builtins, 'input', side_effect=["5"]):
+        calculator.main()
+
+def test_main_valid_addition():
+    with patch("builtins.input", side_effect=["1", "2", "3", "5"]):
+        calculator.main()
+
+def test_main_invalid_input():
+    with patch("builtins.input", side_effect=["1", "abc", "5"]):
+        calculator.main()
+
+def test_main_divide_by_zero():
+    with patch('builtins.input', side_effect=["4", "10", "0", "5"]):
+        calculator.main()
+
+def test_main_invalid_choice():
+    with patch("builtins.input", side_effect=["9", "5"]):
+        calculator.main()
+
+def test_main_invalid_number_input_loop():
+    with patch('builtins.input', side_effect=["1", "abc", "5"]):
+        calculator.main()
+
+##Test
+
+from unittest.mock import patch
+import calculator
+
+def test_main_all_branches():
+    inputs = [
+        "1", "10", "5",      
+        "2", "20", "5",      
+        "3", "3", "3",       
+        "4", "8", "2",       
+        "9",                 
+        "5"                  
+    ]
+    with patch('builtins.input', side_effect=inputs):
+        calculator.main()
+

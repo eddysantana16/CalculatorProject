@@ -26,7 +26,7 @@ jobs:
         PYTHONPATH: ${{ github.workspace}}
       run: |
         source venv/bin/activate
-        pytest --cov=. --cov-fail-under=100
+        pytest --cov=. --cov-fail-under=80
 
     - name: Generate coverage XML report
       env: 

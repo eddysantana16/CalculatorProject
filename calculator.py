@@ -38,11 +38,12 @@ def main ():
         if choice == "5":
             print("Goodbye!/Adios!")
             break
-        try:
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-        except ValueError:
-            print("Please Enter A Valid Number! -_-")
+        elif choice in ("1", "2", "3", "4"):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+            except ValueError:
+                print("Please Enter A Valid Number! -_-")
             continue
 
         if choice == "1":
